@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: SIT update bucket
- * Description: Update S3 links after moving to new S3 bucket
- * Version: 1.0.0
+ * Plugin Name: SIT update S3 buckets
+ * Description: Update S3 paths after moving to new S3 buckets
+ * Version: 1.0.1
  * Author: SIT:Jaroslav Dvořák
  **/
 

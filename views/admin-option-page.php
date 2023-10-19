@@ -7,8 +7,8 @@ $settings = sits3_get_s3_settings();
 $bucket = $settings["bucket"];
 ?>
 <div class="wrap">
-    <h1>Update S3 bucket</h1>
-    <p>Update S3 links after moving to new S3 bucket</p>
+    <h1>Update S3 buckets</h1>
+    <p>Update S3 paths after moving to new S3 buckets</p>
     <form method="post" action="options.php">
         <?php
         settings_fields("sits3_options");
