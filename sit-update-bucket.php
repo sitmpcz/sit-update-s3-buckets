@@ -122,18 +122,24 @@ function sits3_do_it():string {
             // Update kazdyho zaznamu
             foreach ( $result as $item ) {
 
-                $array = unserialize( $item->meta_value );
-                $array["Bucket"] = $new_bucket;
+                $update = 0;
 
-                $new_key = str_replace( '//var/', '/var/', $array["Key"] );
+                // Pokud je to wpmf_awsS3_info
+                if ( $item->meta_key == 'wpmf_awsS3_info' ) {
 
-                if ( $new_key ) {
-                    $array["Key"] = $new_key;
+                    $array = unserialize( $item->meta_value );
+                    $array["Bucket"] = $new_bucket;
+
+                    $new_key = str_replace( '//var/', '/var/', $array["Key"] );
+
+                    if ( $new_key ) {
+                        $array["Key"] = $new_key;
+                    }
+
+                    $meta_value = serialize( $array );
+
+                    $update = $wpdb->update( $wpdb->prefix . 'postmeta', [ 'meta_value' => $meta_value ], [ 'meta_id' => $item->meta_id ] );
                 }
-
-                $meta_value = serialize( $array );
-
-                $update = $wpdb->update( $wpdb->prefix . 'postmeta', [ 'meta_value' => $meta_value ], [ 'meta_id' => $item->meta_id ] );
 
                 if ( $update ) {
                     $count += $update;
