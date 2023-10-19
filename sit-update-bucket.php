@@ -207,6 +207,18 @@ function sits3_do_it():string {
         $query = $wpdb->prepare( "UPDATE {$wpdb->prefix}yoast_indexable SET open_graph_image_meta = REPLACE(open_graph_image_meta, %s, %s)", '//var/', '/var/' );
         $result = $wpdb->query( $query );
         $html .= '<p>9b. Tabulka: <b>yoast_indexable</b>, sloupec <b>open_graph_image_meta</b>, špatné adresy se dvěma lomítkama, '.$result.' záznamů bylo aktualizováno.</p>';
+
+        // 10. yoast_indexable - permalink, twitter_image, open_graph_image, open_graph_image_meta
+
+        $query = $wpdb->prepare( "UPDATE {$wpdb->prefix}yoast_seo_links SET url = REPLACE(url, %s, %s)", $old_bucket, $new_bucket );
+        $result = $wpdb->query( $query );
+        $html .= '<p>9. Tabulka: <b>yoast_seo_links</b>, sloupec <b>url</b>, '.$result.' záznamů bylo aktualizováno.</p>';
+
+        // 10b. neobsahuje nahodou spatnou variantu adresy ...//var/www...?
+
+        $query = $wpdb->prepare( "UPDATE {$wpdb->prefix}yoast_seo_links SET url = REPLACE(url, %s, %s)", '//var/', '/var/' );
+        $result = $wpdb->query( $query );
+        $html .= '<p>10b. Tabulka: <b>yoast_seo_links</b>, sloupec <b>url</b>, špatné adresy se dvěma lomítkama, '.$result.' záznamů bylo aktualizováno.</p>';
     }
 
     return $html;
