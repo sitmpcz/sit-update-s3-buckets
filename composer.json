@@ -1,0 +1,19 @@
+{
+  "name": "sitmpcz/sit-update-s3-buckets",
+  "description": "WordPress plugin - update S3 buckets",
+  "keywords": ["wordpress", "plugin", "links"],
+  "homepage": "https://sitmp.cz",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jaroslav Dvořák",
+      "email": "dvorakja@plzen.eu",
+      "homepage": "https://sitmp.cz"
+    }
+  ],
+  "type": "wordpress-plugin",
+  "require": {
+    "php": "^7.0 || ^8.0",
+    "composer/installers": "~2.0"
+  }
+}
