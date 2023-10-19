@@ -116,7 +116,7 @@ function sits3_do_it():string {
         // 4. Postmeta - meta_value
 
         // Vsechny postmeta kde se vyskytuje nazev bucketu
-        $result = $wpdb->get_results("SELECT meta_id, meta_value FROM {$wpdb->postmeta} WHERE meta_value LIKE '%{$old_bucket}%'");
+        $result = $wpdb->get_results("SELECT meta_id, meta_key, meta_value FROM {$wpdb->postmeta} WHERE meta_value LIKE '%{$old_bucket}%'");
         $count = 0;
         if ( $result ) {
             // Update kazdyho zaznamu
