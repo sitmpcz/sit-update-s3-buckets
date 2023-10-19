@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SIT update S3 buckets
  * Description: Update S3 paths after moving to new S3 buckets
- * Version: 1.0.1
+ * Version: 1.0.4
  * Author: SIT:Jaroslav Dvořák
  **/
 
