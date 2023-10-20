@@ -119,10 +119,11 @@ function sits3_do_it():string {
         $result = $wpdb->get_results("SELECT meta_id, meta_key, meta_value FROM {$wpdb->postmeta} WHERE meta_value LIKE '%{$old_bucket}%'");
         $count = 0;
         if ( $result ) {
+
+            $update = 0;
+
             // Update kazdyho zaznamu
             foreach ( $result as $item ) {
-
-                $update = 0;
 
                 // Pokud je to wpmf_awsS3_info
                 if ( $item->meta_key == 'wpmf_awsS3_info' ) {
